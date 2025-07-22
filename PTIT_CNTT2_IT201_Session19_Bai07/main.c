@@ -8,15 +8,15 @@ typedef struct Node {
 } Node;
 
 Node *createNode(int data) {
-    Node *p = (Node*)malloc(sizeof(Node));
-    if (p == NULL) {
+    Node *node = (Node*)malloc(sizeof(Node));
+    if (node == NULL) {
         fprintf(stderr, "Cap phat bo nho that bai!\n");
-        exit(EXIT_FAILURE);
+        return NULL;
     }
-    p->data = data;
-    p->left = NULL;
-    p->right = NULL;
-    return p;
+    node->data = data;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
 }
 
 typedef struct QNode {
@@ -42,7 +42,7 @@ void enQueue(Queue *q, Node *item) {
     QNode *tmp = (QNode*)malloc(sizeof(QNode));
     if (tmp == NULL) {
         fprintf(stderr, "Cap phat QNode that bai!\n");
-        exit(EXIT_FAILURE);
+        return;
     }
     tmp->data = item;
     tmp->next = NULL;
